@@ -1,0 +1,20 @@
+.app_showuser{
+    margin-top: 10px;
+}
+.showuser{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.showuser__container{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(206, 228, 247);
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.showuser__container h2{
+    margin: 0 10px;
+}

@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import AddUser from './components/Users/AddUser';
+import styles from './App.module.css';
+import ShowUser from './components/Users/ShowUser';
+
 
 function App() {
+  const [userAdd, setUserAdd] = React.useState([]);
+  const userData = (data) => {
+    setUserAdd((prevData) => {
+      return [...prevData, data]
+    });
+  }
+
+  const userHandle = (id) => {
+    setUserAdd((prevData) => {
+      return prevData.filter((data) => {
+        return data.id !== id
+    })
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className={styles.App}>
+      <AddUser userdetails={userData}/>
+      <ShowUser usersDetails={userAdd} userDelete={userHandle}/>
+   </div>
   );
 }
 
